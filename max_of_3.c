@@ -6,18 +6,8 @@ float max;
 
 float max3 (float number1, float number2, float number3)
 {
-    /*if( b >a && b > c)
-        max = b;
-
-    else if (c > a && c > b)
-        max = c;
-
-    else
-        max = a;*/
-
     max = number1 > number2 ? (number1 > number3 ? number1 : number3) : number2 < number3 ? number3 : number2 ;
     return max;
-
 }
 int main()
 {
@@ -26,7 +16,5 @@ int main()
     printf("Enter three numbers :");
     scanf("%f%f%f" , &number1, &number2, &number3 );
     printf("Biggest number of the entered values: %f \n",max3(number1, number2, number3));
-
-    getch();
     }
 }
