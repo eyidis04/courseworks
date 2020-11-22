@@ -1,0 +1,11 @@
+Suppose all prime numbers are indexed starting from the value 1:
+1st prime number 2
+2nd prime number 3
+3rd prime number 5
+4th prime number 7
+5th prime number 11
+6th prime number 13
+7th prime number 17
+
+If the index of a prime number (ie the integer indicating which prime number it is) is also prime, this prime number is a super 
+prime. For example,in the above table 3 (2 indexed),5 (3 indexed), 11 (5 indexed) and 17 (7 indexed) are super prime numbers.
