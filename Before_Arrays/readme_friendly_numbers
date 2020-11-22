@@ -1,0 +1,2 @@
+Where x and y are positive integers, these numbers are "friends" if the sum of the factors
+of  x equals the number y, and also the sum of the factors of y is equal to the number x.
