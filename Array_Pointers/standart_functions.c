@@ -4,6 +4,8 @@
 
 #define SIZE    100
 
+/*Standart C functions which I wrote for practice.*/
+
 size_t my_strlen(const char *p)
 {
     size_t len;
