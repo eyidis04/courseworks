@@ -1,0 +1,4 @@
+
+Partitioning is the process of dividing a data structure into providing and non-providing conditions.
+This task can be accomplished with an algorithm of O (n) complexity.We have an array with int type of elements. 
+Divide those elements as evens first and odds after them. For example [3, 9 , 8 , 7] should be [8, 3, 9, 7]
