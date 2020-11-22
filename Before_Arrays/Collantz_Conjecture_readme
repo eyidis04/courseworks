@@ -1,0 +1,2 @@
+For each new value of n where n is an integer, the following rules will be applied. If n equals 1, the operations 
+will be terminated. If n is even, n / 2 is taken as the new value of n. If n is odd, the new value of n is 3 * n + 1.
