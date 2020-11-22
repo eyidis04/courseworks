@@ -5,12 +5,11 @@
 
 void swap (int *pf, int *pe )
 {
-
-
     int temp = *pe;
     *pe = *pf;
     *pf = temp;
 }
+
 int even_partition(int *p, int size)
 {
     int *pidx = p;
@@ -22,8 +21,10 @@ int even_partition(int *p, int size)
     }
     return pidx - pfirst; //value of the first odd element's index
 }
+
 int main()
-{ int i;
+{
+    int i;
 
     int array[SIZE] = {
 	1, 320, 552,   3, 989, 899, 604, 291, 279, 513, 800, 137, 857, 908,  71, 929, 272,  10, 643, 674,
