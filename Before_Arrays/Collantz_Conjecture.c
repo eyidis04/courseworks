@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 
 unsigned long long collatz_number;
 
@@ -23,5 +22,4 @@ int main()
     printf("Enter an integer number: ");
     scanf("%I64u", &collatz_number);
     printf("\n\nAbove are %u terms created for integer %I64u", display_collatz(collatz_number), collatz_number);
-    getch();
 }
