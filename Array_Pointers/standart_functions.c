@@ -102,19 +102,3 @@ char * my_strcat (char* pdest, const char* psource)
     strcpy(pdest + len, psource);
     return pdest;
 }
-int main()
-{
-
-    char s1[SIZE];
-    char s2[SIZE];
-    printf(" İlk diziyi giriniz:  ");
-    gets(s1);
-    printf(" İkinci diziyi giriniz:  ");
-    gets(s2);
-
-
-
-    printf("[%s] dizisinin sonuna [%s] dizisi ekleniyor:", s1, s2);
-    my_strcat(s1, s2);
-    printf("\ns1 dizisi :  %s", s1);
-}
