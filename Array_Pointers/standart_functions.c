@@ -24,7 +24,8 @@ char* my_strchr(const char *p, int c)
 
     return NULL;
 }
-void strallchr(char*p, int c)
+
+void strreplace_allchr(char*p, int c)
 {
 
     while(*p++){
@@ -32,6 +33,7 @@ void strallchr(char*p, int c)
             *p++ = '!';
     }
 }
+
 char* my_strrchr(const char *p, int c)
 {
     size_t len = strlen(p);
@@ -42,6 +44,7 @@ char* my_strrchr(const char *p, int c)
     }
      return NULL;
 }
+
 char * my_strstr(const char* p, const char* p2)
 {
     size_t len = strlen(p2);
@@ -70,6 +73,7 @@ char * my_strstr(const char* p, const char* p2)
                                   // For that reason we need to subtract the len from the ptr to access to starting
                                   // address of searched array.
 }
+
 char *remove_char(char *p, int ch)
 {
     size_t len = strlen(p);
@@ -81,6 +85,7 @@ char *remove_char(char *p, int ch)
     }
     return p;
 }
+
 char * my_strcpy(char* pdest, const char *psource)
 {
     char * ptemp = pdest;
