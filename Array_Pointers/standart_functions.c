@@ -74,18 +74,6 @@ char * my_strstr(const char* p, const char* p2)
                                   // address of searched array.
 }
 
-char *remove_char(char *p, int ch)
-{
-    size_t len = strlen(p);
-
-    while(len--){
-        if(ch == *p++){
-
-        }
-    }
-    return p;
-}
-
 char * my_strcpy(char* pdest, const char *psource)
 {
     char * ptemp = pdest;
