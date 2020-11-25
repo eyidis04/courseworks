@@ -4,8 +4,6 @@
 
 #define SIZE    100
 
-/*Standart C functions which I wrote for practice.*/
-
 size_t my_strlen(const char *p)
 {
     size_t len;
@@ -24,8 +22,7 @@ char* my_strchr(const char *p, int c)
 
     return NULL;
 }
-
-void strreplace_allchr(char*p, int c)
+void strallchr(char*p, int c)
 {
 
     while(*p++){
@@ -33,7 +30,6 @@ void strreplace_allchr(char*p, int c)
             *p++ = '!';
     }
 }
-
 char* my_strrchr(const char *p, int c)
 {
     size_t len = strlen(p);
@@ -44,7 +40,6 @@ char* my_strrchr(const char *p, int c)
     }
      return NULL;
 }
-
 char * my_strstr(const char* p, const char* p2)
 {
     size_t len = strlen(p2);
@@ -73,7 +68,6 @@ char * my_strstr(const char* p, const char* p2)
                                   // For that reason we need to subtract the len from the ptr to access to starting
                                   // address of searched array.
 }
-
 char * my_strcpy(char* pdest, const char *psource)
 {
     char * ptemp = pdest;
@@ -83,11 +77,11 @@ char * my_strcpy(char* pdest, const char *psource)
     *pdest = '\0';
     return ptemp;
 
-    /*Then I learn a better idiom. Here it is;
+    /*Then I learn a better idiom. Here it is;*/
       char * ptemp = pdest;
       while(*pdest++ = *psource++)
         ;
-        return ptemp;*/
+        return ptemp;
 }
 char * my_strcat (char* pdest, const char* psource)
 {
@@ -95,3 +89,38 @@ char * my_strcat (char* pdest, const char* psource)
     strcpy(pdest + len, psource);
     return pdest;
 }
+int my_strcmp(const char* pleft, const char* pright)
+{
+    /* This is my own complicated version. First I find which array has less elements for not take any "out of bonds" error.
+    Then I compared every corresponding element of each array then return the function to comparison result.  */
+    
+    size_t left_len  = strlen(pleft);
+    size_t right_len = strlen(pright);
+    size_t smallone  = left_len < right_len ? left_len : right_len;
+
+        for(size_t i = 0; i < smallone; ++i){
+            if(pleft[i] > pright[i])
+                return 1;
+
+            if(pright[i] > pleft[i])
+                return -1;
+        }
+        if(left_len > right_len)
+            return 1;
+
+        if(right_len > left_len )
+            return -1;
+
+        return 0;
+}
+/* This is much more beautiful way for do that. While loop is using for prevent "out of bonds" error. If pleft array reach null
+   then it means both arrays are equal. Return value can be any positive or negative value. So writing like that is make sense.   */
+
+    while{*pleft == *pright}{
+        if(*pleft == '\0')
+            return 0;
+        ++pleft;
+        ++pright;
+    }
+
+    return (int)*pleft - (int)*pright;
