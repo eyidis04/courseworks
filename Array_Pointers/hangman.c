@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-void putstar(char* p, size_t c)
+void putstar(char* p, size_t c) //Makes all the elements of an array '*' character. Length is equal to the length of the randomly selected array.
 {
     while(c--){
         *p++ = '*';
@@ -45,7 +45,7 @@ int main()
     "saniye", "cesim", "aydan", "eda", };
 
     size_t size = sizeof(pnames) / sizeof(char*);
-    int life = 5;
+    int life = 5, score = 0;
     char ch, mistake, first_entry;
     const char* chr_ret;
     char star[10];
@@ -57,27 +57,32 @@ int main()
 
     while(life){
 
-        printf("Gizli kelime: %s %s \n", star, p);
-
-        second_chance:
-
-        printf("\nKelimeyi tahmin etmek icin 'w' ye basiniz : Harf tahmin etmek icin w disinda herhangi bir tusa basiniz :");
+second_chance:
+        printf("Secret name: %s\n", star);
+        printf("\nPress 'w' to guess the secret name. Press any key except 'w' to guess a letter :");
         scanf(" %c", &first_entry);
         if(first_entry == 'w')
         {
-            printf("Tahmininizi giriniz: ");
+            printf("The word you guess: ");
             scanf(" %s", guess);
             if(!strcmp(guess, p))
             {
-                printf("Tebrikler. Gizli kelime %s bulundu. Canlarınız tekrar beşe"
-                       " tamamlandı.\nYeni isim ile devam etmek istiyor musunuz? y/n\n", p);
-                   goto repeat;
+                  printf("Congratulations. Secret name '%s' has been found. Your total life is up to five\n", p);
+
+                   ++score;
+                   printf("Your Score: %d\n Do you want to continue with a new name? y/n :\n", score);
+
+                goto repeat;
             }
             --life;
-            printf("Hatali tahminde bulundunuz\n Kalan can: %d", life);
+            printf("Your guess was wrong\nRemaining life: %d\n", life);
+            
+            if(!life)
+            break;
+            
             goto second_chance;
         }
-        printf("Harf tafmininiz: ");
+        printf("Your guess for a letter: ");
         scanf(" %c", &ch);
         chr_ret = strchr(p, ch);
 
@@ -89,12 +94,14 @@ int main()
                 star[idx] = ch;
                 chr_ret = strchr(chr_ret + 1, ch);
         }
-        printf("Kalan Can: %d\n", life);
+        printf("Remaining life: %d\n", life);
 
         if(!strchr(star, '*')){
             life = 5;
-            printf("Tebrikler. Gizli kelime %p bulundu. Canlarınız tekrar beşe"
-                   " tamamlandı.\nYeni isim ile devam etmek istiyor musunuz? y/n\n", star);
+            printf("Congratulations. Secret name '%s' has been found. Your total life is up to five\n", p);
+
+                   ++score;
+                   printf("Your Score: %d\n Do you want to continue with a new name? y/n :\n", score);
 
 repeat:
             scanf(" %c", &mistake);
@@ -107,13 +114,20 @@ repeat:
             p = pnames[rand_var];
             putstar(star, strlen(p));
             system("cls");
+            life = 5;
+            goto second_chance;
             }
 
             else{
-                 printf("Yanlis bir giris yaptiniz. Yeni isim ile devam etmek istiyor musunuz? y/n\n");
+                 printf("You made a wrong entry. Do you want to continue with a new name? y/n\n");
+                 life = 5;
                  goto repeat;
             }
         }
     }
+    printf("You lost the game. The name was '%s'.\nYour score: %d\nDo you want to continue? y/n\n", p, score);
+    score = 0;
+    life = 5;
+    goto repeat;
 }
 
